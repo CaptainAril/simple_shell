@@ -53,17 +53,18 @@ int _strcmp(char *s1, char *s2)
  */
 int word_count(char *str)
 {
-	int i, count = 0, flag;
+	int i, count, flag;
 
 	flag = 0;
+	count = 0;
 	for (i = 0; str[i]; i++)
 	{
-		if (str[i] != ' ' && flag == 0)
+		if ((str[i] != ' ' && str[i] != '\t') && flag == 0)
 		{
 			count++;
 			flag = 1;
 		}
-		if (str[i] == ' ')
+		if (str[i] == ' ' || str[i] == '\t')
 			flag = 0;
 	}
 	return (count);
