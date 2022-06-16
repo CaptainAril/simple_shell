@@ -12,7 +12,7 @@
 
 void prompt(void);
 char *_read(void);
-char **parser(char *buf);
+char **parser(char *str, int count);
 
 
 /* string handlers */

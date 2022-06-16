@@ -29,29 +29,33 @@ char *_read(void)
 }
 
 /**
- * parser - parses the twerminal input into tokens,
+ * parser - parses the terminal string input into tokens,
  *          stored in a NULL terminated array
  * @buf - points to string to be parsed
  * Return: Returns pointer to a NULL terminated array of tokens
  */
-char **parser(char *str)
+char **parser(char *str, int count)
 {
 	char *token;
+	char **arr = malloc(sizeof(char *)  * (count + 1));
 	const char *delim = " ";
 	int i;
 
+	if( arr == NULL)
+	{
+		perror("Error");
+		exit (0);
+	}
+
 	token = strtok(str, delim);
-	printf("parser str: %s\n", str);
-	printf("token 1: %s\n", token);
-	printf("parser str: %s\n", str);
+	arr[0] = token;
 	i = 1;
 	while (token != NULL)
 	{
-		token[i] = strtok(NULL, delim);
+		token = strtok(NULL, delim);
+		arr[i] = token;
 		i++;
-		printf("%s->", token[i]);
 	}
-	token[i] = NULL;
-	printf("%s\n", token);
-	return(token);
+	arr[i] = NULL;
+	return(arr);
 }

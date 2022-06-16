@@ -4,7 +4,7 @@
 int main(void)
 {
 	char *cmd, **argv;
-	int i, word_count;
+	int i, count;
 
 	while (1)
 	{
@@ -15,9 +15,11 @@ int main(void)
 		for (i=0; cmd[i]; i++)
 			;
 		printf("count: %i\n", i);
-		word_count = word_count(cmd);
-		printf("word count: %i\n", word_count);
-		argv = parser(cmd);
+		count = word_count(cmd);
+		printf("word count: %i\n", count);
+		argv = parser(cmd, count);
+		for (i = 0; i < count; i++)
+			printf("argv[%i]: %s\n", i, argv[i]);
 
 		if (fork() == 0)
 		{
@@ -30,4 +32,7 @@ int main(void)
 		}
 	}
 	return (0);
+
+	free (argv);
+	free(cmd);
 }
