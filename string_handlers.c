@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * strcat - concatenates two strings
+ * _strcat - concatenates two strings
  * @dest: destination string
  * @src: string to be concatenated
  * Return: return dest
@@ -10,7 +10,8 @@
 char *_strcat(char *dest, char *src)
 {
 	int i, j;
-	i = 0, j =0;
+
+	i = 0, j = 0;
 
 	while (dest[i] != '\0')
 	{
@@ -34,9 +35,9 @@ char *_strcat(char *dest, char *src)
  */
 int _strcmp(char *s1, char *s2)
 {
-	int i = 0, val =0;
+	int i = 0, val = 0;
 
-	while(val == 0)
+	while (val == 0)
 	{
 		if (s1[i] == '\0' && s2[i] == '\0')
 			break;

@@ -1,5 +1,10 @@
 #include "shell.h"
-#include <stdio.h>
+
+/**
+ * main - runs the shell
+ *
+ * Return: 0 if successful
+ */
 
 int main(void)
 {
@@ -10,7 +15,7 @@ int main(void)
 	{
 		prompt();
 
-	 	cmd = _read();
+		cmd = _read();
 		count = word_count(cmd);
 		argv = parser(cmd, count);
 

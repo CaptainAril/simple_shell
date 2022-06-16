@@ -1,8 +1,6 @@
 #ifndef _SHELL_H_
 #define _SHELL_H_
 
-#define SIZE_MAX 1024
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -13,7 +11,6 @@
 void prompt(void);
 char *_read(void);
 char **parser(char *str, int count);
-
 
 /* string handlers */
 char *_strcat(char *dest, char *src);

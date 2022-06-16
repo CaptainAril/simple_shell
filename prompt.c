@@ -3,18 +3,24 @@
 /**
  * prompt - Displays the prompt message
  */
+
 void prompt(void)
 {
-	write (1, "$ ", 2);
+	write(1, "$ ", 2);
 }
 
+/**
+ * _read - reads the terminal input
+ * Return: returns the terminal input as string
+ */
 char *_read(void)
 {
 	ssize_t char_read;
 	size_t len = 0;
 	char *buf = NULL;
 
-	if((char_read = getline(&buf, &len, stdin)) == -1)
+	char_read = getline(&buf, &len, stdin);
+	if (char_read == -1)
 	{
 		write(1, "\n", 1);
 		free(buf);
@@ -28,7 +34,8 @@ char *_read(void)
 /**
  * parser - parses the terminal string input into tokens,
  *          stored in a NULL terminated array
- * @buf - points to string to be parsed
+ * @str: points to string to be parsed
+ * @count: number of words in str
  * Return: Returns pointer to a NULL terminated array of tokens
  */
 char **parser(char *str, int count)
@@ -38,11 +45,11 @@ char **parser(char *str, int count)
 	const char *delim = " \t";
 	int i = 0;
 
-	if( arr == NULL)
+	if (arr == NULL)
 	{
 
 		perror("Error");
-		exit (0);
+		exit(0);
 	}
 
 	token = strtok(str, delim);
@@ -54,5 +61,5 @@ char **parser(char *str, int count)
 		arr[i] = token;
 	}
 	arr[i] = NULL;
-	return(arr);
+	return (arr);
 }
