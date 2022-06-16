@@ -4,21 +4,15 @@
 int main(void)
 {
 	char *cmd, **argv;
-	int count, i;
+	int count;
 
 	while (1)
 	{
 		prompt();
 
 	 	cmd = _read();
-		printf("cmd: %s\n", cmd);
-
 		count = word_count(cmd);
-		printf("word count: %i\n", count);
-
 		argv = parser(cmd, count);
-		for (i = 0; i < count; i++)
-		printf("argv[%i]: %s\n", i, argv[i]);
 
 		if (fork() == 0)
 		{
